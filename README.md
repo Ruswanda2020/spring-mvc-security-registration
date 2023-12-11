@@ -15,8 +15,8 @@ Selain itu, proyek ini juga memanfaatkan modul keamanan Spring Security.
 - Spring Boot
 - Spring MVC
 - Spring Security
-- mysql
-- theamleaf
+- MySQL
+- Thymeleaf
 
 ## Cara Menjalankan Proyek
 
