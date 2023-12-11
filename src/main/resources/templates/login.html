@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<div class="container">
+
+    <div class="message" id="error-message" th:if="${param.error}">
+        Invalid username or password
+    </div>
+    <div class="message" id="logout-message" th:if="${param.logout}">
+        Logout successful
+    </div>
+
+
+    <h2>Admin and user Login Page</h2>
+    <form id="registrationForm"
+          method="post"
+          th:action="@{/login}"
+
+    >
+        <div class="form-group">
+            <label for="username">EMAIL:</label>
+            <input type="email" id="username" name="username" required placeholder="enter your valid email" >
+        </div>
+
+        <div class="form-group">
+            <label for="password">PASSWORD:</label>
+            <input type="password" id="password" name="password" required placeholder="enter your password">
+        </div>
+
+        <input type="submit" value="login">
+    </form>
+    <a th:href="@{/registration}" class="register-button">Register</a>
+</div>
+
+<script>
+
+    document.addEventListener('DOMContentLoaded', function () {
+        var errorMessageDiv = document.getElementById('error-message');
+        var logoutMessageDiv = document.getElementById('logout-message');
+
+        if (errorMessageDiv.innerText.trim() !== '') {
+            errorMessageDiv.style.display = 'block';
+        }
+
+        if (logoutMessageDiv.innerText.trim() !== '') {
+            logoutMessageDiv.style.display = 'block';
+        }
+    });
+</script>
+
+</body>
+</html>
